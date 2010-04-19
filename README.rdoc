@@ -42,8 +42,8 @@ This produces a menu like:
 
 Based on the options for each menu item, the menu figures out which tab should it mark as selected.  
 
-Authors
-=======
+=== Authors
+
 - maintained by Cristi Prodan (http://cristiprodan.com)
 - Thanks to Alliants (http://alliants.co.uk) for sponsoring development and supporting open sourcing it from the start 
 
