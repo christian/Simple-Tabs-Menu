@@ -1,0 +1,50 @@
+=== SimpleTabsMenu
+
+* http://github.com/christian/SimpleTabsMenu
+
+A light-weight plugin which provides a DSL for creating tabbed navigation. Highlighting is made using regular expressions based on the current request. See the example bellow for more info. 
+
+=== Example
+
+1. In the view 
+
+    <%=
+      simple_menu(:ul_class => "tabs", :li_selected_class => "selected") do |m|
+        m.menu_item :url => "/", :name => "Home", :highlights_on => ["/boats"]
+        m.menu_item :url => "/stats", :name => "Statistics", :highlights_on => ["/users/new", "/login"]
+        m.menu_item :url => "/races", :name => "My Races", :highlights_on => ["/users/new", "/login"]
+      end
+    %>
+
+2. Via a helper
+
+    module ApplicationHelper
+      def site_menu
+        simple_menu(:ul_class => "tabs", :li_selected_class => "selected") do |m|
+          m.menu_item :url => "/", :name => "Home", :highlights_on => ["/boats"]
+          m.menu_item :url => "/stats", :name => "Statistics", :highlights_on => ["/users/new", "/login"]
+          m.menu_item :url => "/races", :name => "My Races", :highlights_on => ["/users/new", "/login"]
+        end
+      end
+    end
+
+Then inside the view:
+
+    <%= site_menu %>
+
+This produces a menu like:
+
+    <ul class='tabs'>
+        <li><a href='/' class='selected'>Home</a></li>
+        <li><a href='/stats' >Statistics</a></li>
+        <li><a href='/races' >My Races</a></li>
+    </ul>
+
+Based on the options for each menu item, the menu figures out which tab should it mark as selected.  
+
+Authors
+=======
+- maintained by Cristi Prodan (http://cristiprodan.com)
+- Thanks to Alliants (http://alliants.co.uk) for sponsoring development and supporting open sourcing it from the start 
+
+Copyright (c) 2010 christian, released under the MIT license
